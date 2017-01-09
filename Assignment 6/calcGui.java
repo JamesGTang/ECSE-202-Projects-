@@ -15,7 +15,6 @@ class calcGui {
     QueueAsLinkedList<String> input_queue = new QueueAsLinkedList<String>();
     precendence_check p = new precendence_check();
 
-    // function constructor
     calcGui() {
 
         JPanel jp = new JPanel(new GridLayout(4, 3));
@@ -100,18 +99,6 @@ class calcGui {
         jfr.setContentPane(jp);
         jfr.setVisible(true);
 
-        /*
-        ActionListener al = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(e.getActionCommand());
-               passValue(e.getActionCommand());
-            }
-        };
-        */
-        // number group
-
-        // use lambda expression to add action listener
         jb0.addActionListener((e) -> {
             passValue(e.getActionCommand());
             input.setText(input1);
@@ -216,10 +203,6 @@ class calcGui {
         }else if (d=="evaluate"){
             // evaluate the equation
             fin=calc(input1);
-            /*
-            String test="1+3";
-            fin=calc(test);
-            System.out.println("The value is"+fin);*/
         }else {
             input1 = input1 + d;
             System.out.println(input1);
@@ -234,23 +217,14 @@ class calcGui {
             String temp=input_queue.dequeue();
 
             int val=p.precedence_check(temp);
-            //System.out.println("The value"+temp);
+            
             if (val==0){
-                // its a number
-                // it is a number, it is directly put in the output
                 output_queue.enqueue(temp);
             }else{
                 if(operator_stack.isEmpty()){
-                    //System.out.println("Empty");
+                
                     operator_stack.push(temp);
-
-                    //System.out.println(pos);
-
                 }else if(val<=p.precedence_check(operator_stack.peek())){
-                    //System.out.print(marker[i]+" "+marker[i]);
-                    // if operator on top has higher precedence
-                    // pop operator from stack to output queue
-
                     while(!operator_stack.isEmpty()&& val<=p.precedence_check(operator_stack.peek())) {
                         output_queue.enqueue(operator_stack.pop());
 
@@ -258,9 +232,6 @@ class calcGui {
                     }
                     operator_stack.push(temp);
                 }else if(val>p.precedence_check(operator_stack.peek())){
-                    //System.out.println(marker[pos]);
-                    // if operator on top has lower precedence
-                    // push operator in diurectly
                     operator_stack.push(temp);
 
                 }
@@ -272,18 +243,7 @@ class calcGui {
         while(!operator_stack.isEmpty()){
             output_queue.enqueue(operator_stack.pop());
         }
-        //System.out.print("Postfix: ");
-        // print the output queue using linked list
-        /*
-        while (!output_queue.isEmpty()){
-            //System.out.println("The result is"+result.pop());
-
-            System.out.print("Dequeued vlaues:"+output_queue.dequeue());
-        }
-        */
-
-        // implement error handling mechanism
-        // if the input is not corret, null pointer exception will be thrown
+   
         try{
         while(!output_queue.isEmpty()){
             String str1=output_queue.dequeue();
@@ -305,20 +265,15 @@ class calcGui {
 
     }
     public void parser(String str){
-
-        //System.out.println("at 0 is "+p.precedence_check(str.charAt(0)));
-        //System.out.println("at 1 is "+p.precedence_check(str.charAt(1)));
-        //System.out.println("at 2 is "+p.precedence_check(str.charAt(2)));
-
+        
         for(int i=0;i<str.length();i++) {
 
             if ((p.precedence_check(str.charAt(i)))!= 0){
                 input_queue.enqueue(Character.toString(str.charAt(i)));
                 input_queue_size++;
-                //System.out.println("i am here"+input_queue_size);
             }
             else if((p.precedence_check(str.charAt(i)) == 0)){
-                //System.out.print("Hello"+p.precedence_check(str.charAt(i)));
+                
                 String temp = "";
                 int k=i;
                 while (k<str.length() && p.precedence_check(str.charAt(k))==0) {
@@ -330,15 +285,9 @@ class calcGui {
                 i--;
                 input_queue_size++;
                 input_queue.enqueue(temp);
-                //System.out.println("looped "+input_queue_size);
             }
         }
     }
-    public void exception(){
-
-    }
-
-
     public static void main(String args[]) {
 
         SwingUtilities.invokeLater(new Runnable() {
@@ -462,13 +411,11 @@ class Stacklinkedlist<T>{
 class precendence_check{
     int marker=0;
     // function to assgin a value to the operator
-    // if it is a number the value will be 0
     public int precedence_check(char c){
 
         //System.out.println(c[0]);
             switch(c){
-                // precedence are assigned a marker value from
-                // 15 to 1
+                
                 case '/': marker=13; break;
                 // command line will not pass asterik
                 // therefore x is used
@@ -489,12 +436,9 @@ class precendence_check{
         //System.out.println(c[0]);
         if(c.length==1){
             switch(c[0]){
-                // precedence are assigned a marker value from
-                // 15 to 1
+            
                 case '.': marker=15; break;
                 case '/': marker=13; break;
-                // command line will not pass asterik
-                // therefore x is used
                 case 'x': marker=13; break;
                 case '+': marker=12; break;
                 case '-': marker=12; break;
@@ -517,7 +461,6 @@ class precendence_check{
                 case 'x': result=b*a; break;
                 case '+': result=b+a; break;
                 case '-': result=b-a; break;
-                // deal with exponential operator
                 case '^': {
                     for (int i=0;i<a;i++){
                         result=result*b;
@@ -534,12 +477,3 @@ class precendence_check{
 }
 
 
-    /*
-
-        });
-
-        // use lamba expression for action event for simplicity
-        jb2.addActionListener((e) -> {
-            //jCalc.expression=jCalc.expression+e.getActionCommand();
-            //output.setText(jCalc.expression);
-        });*/
