@@ -1,0 +1,32 @@
+Jamess-MacBook-Pro:jamestang JT-MAC$ java In2pJ 3 + 5 / 7 x 12
+Postfix: 3 5 7 / 12 x + 
+
+Jamess-MacBook-Pro:jamestang JT-MAC$ java In2pJ 34 / 5 + 16 x 2
+Postfix: 34 5 / 16 2 x +
+
+Jamess-MacBook-Pro:jamestang JT-MAC$ java In2pJ 15 + 6 / 3
+Postfix: 15 6 3 / + 
+
+Jamess-MacBook-Pro:jamestang JT-MAC$ java In2pJ \( 13 - 4 \)
+Postfix: 13 4 - ( 
+
+Jamess-MacBook-Pro:jamestang JT-MAC$ java In2pJ \( 13 x 5 \) - 5 + 7
+Postfix: 13 5 x 5 - 7 + ( 
+
+Jamess-MacBook-Pro:jamestang JT-MAC$ java In2pJ 13 x 2 x 4 / 5 / 7 
+Postfix: 13 2 x 4 x 5 / 7 / 
+
+Jamess-MacBook-Pro:jamestang JT-MAC$ java In2pJ 1 / 4 / \( 5 x 5 \)
+Postfix: 1 4 / 5 5 x ( / 
+
+Jamess-MacBook-Pro:jamestang JT-MAC$ java In2pJ 1 / 4 / 5 x 6 + 5
+Postfix: 1 4 / 5 / 6 x 5 +
+
+Jamess-MacBook-Pro:jamestang JT-MAC$ java In2pJ 2 + 3 + 4 / 5 / 6 / 7
+Postfix: 2 3 + 4 5 / 6 / 7 / + 
+
+Jamess-MacBook-Pro:jamestang JT-MAC$ java In2pJ \( 12 x 1 \) + 5 + 7 
+Postfix: 12 1 x 5 + 7 + (
+
+Jamess-MacBook-Pro:jamestang JT-MAC$ java In2pJ 15 + 6 / 3 / 4 x 3 x 2
+Postfix: 15 6 3 / 4 / 3 x 2 x + 
