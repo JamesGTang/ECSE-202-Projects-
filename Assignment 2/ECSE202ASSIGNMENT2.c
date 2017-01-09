@@ -1,4 +1,3 @@
-
 // defintion of constant data and include
 // standard input/output library
 
@@ -6,8 +5,6 @@
 #define MAXNAMELENGTH 15
 #include <stdio.h>
 #include <stdlib.h>
-
-//  swapping sturcture
 
 // Building a struct with name SR
 struct SR
@@ -129,21 +126,16 @@ int paritition(struct SR rl[], int left,int right,int pivot){
         while(rl[++left_pointer].r<pivot){
         // do nothhing
         }
-
         while((right_pointer>0)&&(rl[--right_pointer].r>pivot)){
         // do nothing
-
         }
 
         if (left_pointer>=right_pointer){
             
             break;
         }else{
-            // use below to test the output from partition
-            // printf("%s%s\n",rl[left_pointer].p, rl[right_pointer].p);
             swap(&rl[left_pointer], &rl[right_pointer]);
-            // printf("%s%s\n",rl[left_pointer].p, rl[right_pointer].p);
-        }
+                    }
     }
         swap(&(rl[left_pointer]),&(rl[right]));
         return left_pointer;

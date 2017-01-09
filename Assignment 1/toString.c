@@ -1,4 +1,4 @@
-/* 
+/**
  ===========================================================
  Created by James Tang
  ID: 260685449 
@@ -7,7 +7,7 @@
  
  
  ===========================================================
- */
+ **/
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -28,9 +28,6 @@ int main(int argc, char *argv[]){
     int distinct_characters= doHist(buffer,myHist);
     printf("%s",myHist);
     displayHist(myHist,distinct_characters);
-    // printf("result: %s\n",buffer);
-    // printf("%s %d\n","The length is:",lengthCounter(buffer));
-    
 }
 
 int  doHist(char buffer[], char hist[]){
